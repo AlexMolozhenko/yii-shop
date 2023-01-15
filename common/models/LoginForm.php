@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use yii\base\Model;
+use yii\helpers\VarDumper;
 
 /**
  * Login form
@@ -71,6 +72,9 @@ class LoginForm extends Model
     protected function getUser()
     {
         if ($this->_user === null) {
+//todo ищет юзера который прошел подтверждение по почте при регистрации
+//todo без этого статус не изменяеться и При логировании он не находит пользователя
+//todo Нужно разобраться!!!!
             $this->_user = User::findByUsername($this->username);
         }
 

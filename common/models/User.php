@@ -83,6 +83,8 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findByUsername($username)
     {
+        //todo разобраться с подтверждением при регистрации. Без этого статус не меняеться в БД
+        //todo и пользователя не находит так как статус не активен
         return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
     }
 

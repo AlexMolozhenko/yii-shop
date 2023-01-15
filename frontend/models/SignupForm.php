@@ -55,7 +55,9 @@ class SignupForm extends Model
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
-
+        //todo Должен отпарвлять Письмо подтверждение на почту
+        //todo  без этого не изменяеться status в БД пользователя и не работает система логирования!!!!
+        //todo  Нужно разобраться!!!!
         return $user->save() && $this->sendEmail($user);
     }
 
